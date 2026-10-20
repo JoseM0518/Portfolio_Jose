@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+body {
+  @apply bg-navy-950 font-sans text-slate-400 antialiased;
+}
+
+/* Resplandores de fondo fijos */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(700px circle at 15% -5%, rgba(37, 99, 235, 0.22), transparent 70%),
+    radial-gradient(500px circle at 95% 40%, rgba(251, 191, 36, 0.06), transparent 70%);
+}
+
+::selection { background: rgba(251, 191, 36, 0.3); color: #fff; }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #fbbf24;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
